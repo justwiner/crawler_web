@@ -1,0 +1,24 @@
+{
+  "name": "nodewebcrawler",
+  "version": "1.0.0",
+  "description": "一个基于node的爬虫工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "爬虫crawler"
+  ],
+  "author": "winer",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "compression": "^1.7.3",
+    "express": "^4.16.3",
+    "moment": "^2.22.2",
+    "mongoose": "^5.2.6",
+    "node-schedule": "^1.3.0",
+    "nodejieba": "^2.2.6",
+    "superagent": "^3.8.3"
+  }
+}
