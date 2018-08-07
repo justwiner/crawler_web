@@ -5,7 +5,7 @@ let ZhiPinServer = (() => {
     const path = require('path')
     const schedule = require('node-schedule')
     const doRequest = require('../lib/doRequest')
-    const {getSalarys, spliceJsonVal, arrayUnique} = require('../lib/tools')
+    const {getSalarys, spliceJsonVal} = require('../lib/tools')
     const config = require('../config')
     const Job = require('../db/mongoose-db').Job
     let timedTask = null
@@ -125,28 +125,6 @@ let ZhiPinServer = (() => {
                     msg: '无定时任务！',
                     success: false
                 }
-            }
-        }
-        static async getAllJobs () {
-            try {
-                console.time("获取数据")
-                let zhiPinJobs = await Job.find({datafrom: 1})
-                console.timeEnd("获取数据")
-                const totalNum = zhiPinJobs.length
-                console.time("去重")
-                zhiPinJobs = arrayUnique(zhiPinJobs, 'uniqueVal')
-                console.timeEnd("去重")
-                const validNum = zhiPinJobs.length
-                console.log("获取Boss直聘职位成功！")
-                return {
-                    success: true,
-                    msg: '获取Boss直聘职位成功！',
-                    totalNum,
-                    validNum,
-                    data: zhiPinJobs
-                }
-            } catch (e) {
-                throw new Error(e)
             }
         }
     }
